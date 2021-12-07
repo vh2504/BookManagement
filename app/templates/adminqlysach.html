@@ -1,0 +1,39 @@
+{% extends "adminbase.html" %}
+
+{% block content %}
+<div class="divTable">
+    <div class="headRow">
+        <div class="divCell" >Ảnh</div>
+        <div class="divCell">Mã Sách</div>
+        <div class="divCell divCell2">Tên sách</div>
+        <div class="divCell" >Số Lượng</div>
+        <div class="divCell">Giá</div>
+        <div class="divCell divCell2">Mã Loại</div>
+        <div class="divCell" >Số Tập</div>
+        <div class="divCell"> Ngày Nhập</div>
+        <div class="divCell divCell2">Tác Giả</div>
+        <div class="divCell"> Sửa</div>
+        <div class="divCell"> Xóa</div>
+    </div>
+    {% for s in sach %}
+   
+    <div class="divRow">
+            <form method="Post" action="{{url_for('adminqlysach')}}">
+            <div class="divCell"><img class="imgsach" src="../static/{{s.Anh}}" alt=""></div>
+            <div class="divCell"><input class="input" name ="MaSach"value="{{s.MaSach}}"></div>
+            <div class="divCell divCell2"><input name ="TenSach" class="input input2" value="{{s.TenSach}}"></div>
+            <div class="divCell"><input class="input" name ="SoLuong" value="{{s.SoLuong}}"></div>
+            <div class="divCell"><input class="input"name ="Gia" value="{{s.Gia}}"></div>
+            <div class="divCell divCell2"><input class="input input2" name ="MaLoai"value="{{s.MaLoai}}"></div>
+            <div class="divCell"><input class="input" name ="SoTap"value="{{s.SoTap}}"></div>
+            <div class="divCell"><input class="input" name ="NgayNhap" value="{{s.NgayNhap.date()}}"></div>
+            <div class="divCell divCell2"><input class="input input2" name ="TacGia"value="{{s.TacGia}}"></div>
+            <div class="divCell"> <button name="btnSua"class="btn btn-primary"> Sửa</button></div>
+            <div class="divCell"> <button class="btn btn-danger"> Xóa</button></div>
+        </form>
+    </div>
+    
+   {% endfor %}
+
+</div>
+{% endblock %}}
